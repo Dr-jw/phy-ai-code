@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物理学史上的伟大实验</title>
+    <!-- TailwindCSS 通过 CDN 引入 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:border-primary-300 dark:hover:border-primary-600;
+            }
+            
+            .experiment-number {
+                @apply flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-100 font-bold text-xl;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- 主题切换按钮 -->
+    <button id="theme-toggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none">
+        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+        <i class="fas fa-moon text-blue-300 hidden dark:block"></i>
+    </button>
+
+    <!-- 页面头部 -->
+    <header class="relative bg-gradient-to-r from-primary-700 to-primary-900 text-white py-20 md:py-32">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+        <div class="container mx-auto px-6 relative animate-fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold text-shadow mb-4">物理学史上的伟大实验</h1>
+            <p class="text-xl md:text-2xl max-w-3xl opacity-90">探索改变人类认知的科学里程碑</p>
+        </div>
+    </header>
+
+    <!-- 导航栏 -->
+    <nav class="sticky top-0 z-40 bg-white dark:bg-gray-800 shadow-md">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between py-4">
+                <div class="text-primary-700 dark:text-primary-300 font-bold text-lg">伟大实验集</div>
+                <div class="flex space-x-6">
+                    <a href="#experiment1" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">埃拉托色尼测量</a>
+                    <a href="#experiment2" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">自由落体</a>
+                    <a href="#experiment3" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">加速度试验</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-6 py-12">
+        <!-- 简介 -->
+        <section class="mb-20 animate-slide-up">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">物理学的实验基石</h2>
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                    物理学的发展历程中，一系列关键实验不仅验证了理论，更改变了人类对自然界的认知。
+                    这些实验以其创新的方法和深远的影响，成为科学史上的里程碑，引领人类探索宇宙的奥秘。
+                </p>
+            </div>
+        </section>
+
+        <!-- 实验一：埃拉托色尼测量地球圆周 -->
+        <section id="experiment1" class="mb-24 scroll-mt-20">
+            <div class="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <!-- 左侧图片 -->
+                    <div class="md:w-2/5 bg-primary-100 dark:bg-primary-900 flex items-center justify-center p-8">
+                        <div class="relative w-full h-64 md:h-full">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4')] bg-cover bg-center rounded-xl"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary-900/70 to-transparent rounded-xl flex items-end">
+                                <div class="p-4 text-white">
+                                    <div class="inline-block px-3 py-1 bg-primary-700 rounded-full text-sm font-semibold mb-2">排名第七</div>
+                                    <h3 class="text-xl font-bold">公元前3世纪的地理测量</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧内容 -->
+                    <div class="md:w-3/5 p-8 md:p-10">
+                        <div class="flex items-start mb-6">
+                            <div class="experiment-number mr-4">1</div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">埃拉托色尼测量地球圆周</h2>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-700 dark:text-gray-300">
+                            <p>
+                                在公元前3世纪，埃及阿斯瓦小镇上，埃拉托色尼注意到一个奇特现象：夏至正午时，阳光直射地面，物体没有影子，阳光甚至能直接照入井中。
+                            </p>
+                            
+                            <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-semibold text-primary-700 dark:text-primary-300 mb-2">实验方法</h4>
+                                <ol class="list-decimal list-inside space-y-2">
+                                    <li>在夏至日，他记录了位于同一经线上的亚历山大城（阿斯瓦正北方）的物体影子</li>
+                                    <li>发现太阳光线与垂直方向成约7度角</li>
+                                    <li>利用几何原理，推算出7度角相当于地球圆周的7/360</li>
+                                    <li>测量两城距离为5000个希腊运动场</li>
+                                    <li>计算得出地球圆周约为25万个希腊运动场</li>
+                                </ol>
+                            </div>
+                            
+                            <p>
+                                这一测量方法展示了埃拉托色尼的科学智慧，他巧妙地将天文观测与几何学相结合。现代测量表明，他的计算结果误差仅在5%以内，这在当时的技术条件下是令人惊叹的精确度。
+                            </p>
+                            
+                            <div class="flex justify-center mt-6">
+                                <div class="inline-flex items-center px-4 py-2 bg-primary-50 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 rounded-lg">
+                                    <i class="fas fa-lightbulb mr-2"></i>
+                                    <span>这一实验是人类首次科学测量地球尺寸的尝试</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实验二：伽利略的自由落体试验 -->
+        <section id="experiment2" class="mb-24 scroll-mt-20">
+            <div class="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                <div class="md:flex flex-row-reverse">
+                    <!-- 右侧图片 -->
+                    <div class="md:w-2/5 bg-primary-100 dark:bg-primary-900 flex items-center justify-center p-8">
+                        <div class="relative w-full h-64 md:h-full">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1564053489984-317bbd824340')] bg-cover bg-center rounded-xl"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary-900/70 to-transparent rounded-xl flex items-end">
+                                <div class="p-4 text-white">
+                                    <div class="inline-block px-3 py-1 bg-primary-700 rounded-full text-sm font-semibold mb-2">排名第二</div>
+                                    <h3 class="text-xl font-bold">挑战亚里士多德的权威</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 左侧内容 -->
+                    <div class="md:w-3/5 p-8 md:p-10">
+                        <div class="flex items-start mb-6">
+                            <div class="experiment-number mr-4">2</div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">伽利略的自由落体试验</h2>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-700 dark:text-gray-300">
+                            <p>
+                                16世纪末，亚里士多德的观点深入人心：重量大的物体下落速度快于轻物体。作为比萨大学数学系教授的伽利略决定挑战这一根深蒂固的观念。
+                            </p>
+                            
+                            <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-semibold text-primary-700 dark:text-primary-300 mb-2">实验过程</h4>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>伽利略选择了比萨斜塔作为实验场地</li>
+                                    <li>他同时从塔顶抛下一轻一重两个物体</li>
+                                    <li>在众人的注视下，两个物体几乎同时落地</li>
+                                    <li>这一结果直接挑战了亚里士多德的权威观点</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex items-center p-4 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg border-l-4 border-yellow-400 dark:border-yellow-600">
+                                <i class="fas fa-quote-left text-yellow-500 dark:text-yellow-400 text-xl mr-3"></i>
+                                <p class="italic">
+                                    "伽利略向世人展示了尊重科学而不畏权威的可贵精神。"
+                                </p>
+                            </div>
+                            
+                            <p>
+                                这一实验不仅是物理学史上的重要里程碑，更是科学精神的典范。伽利略通过直接观察和实验验证，而非依赖权威，开创了现代科学方法论的先河。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实验三：伽利略的加速度试验 -->
+        <section id="experiment3" class="mb-24 scroll-mt-20">
+            <div class="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <!-- 左侧图片 -->
+                    <div class="md:w-2/5 bg-primary-100 dark:bg-primary-900 flex items-center justify-center p-8">
+                        <div class="relative w-full h-64 md:h-full">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb')] bg-cover bg-center rounded-xl"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary-900/70 to-transparent rounded-xl flex items-end">
+                                <div class="p-4 text-white">
+                                    <div class="inline-block px-3 py-1 bg-primary-700 rounded-full text-sm font-semibold mb-2">排名第八</div>
+                                    <h3 class="text-xl font-bold">发现加速度规律</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧内容 -->
+                    <div class="md:w-3/5 p-8 md:p-10">
+                        <div class="flex items-start mb-6">
+                            <div class="experiment-number mr-4">3</div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">伽利略的加速度试验</h2>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-700 dark:text-gray-300">
+                            <p>
+                                继自由落体实验后，伽利略继续深入研究物体运动规律。由于当时无法精确测量自由落体的时间，他设计了一个巧妙的斜面实验来减缓物体下落速度。
+                            </p>
+                            
+                            <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                <h4 class="font-semibold text-primary-700 dark:text-primary-300 mb-2">实验装置与方法</h4>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>制作一个6米多长、3米多宽的光滑直木板槽</li>
+                                    <li>将木板槽倾斜固定，让铜球从顶端沿斜面滑下</li>
+                                    <li>精确测量铜球每次下滑的时间和距离</li>
+                                    <li>分析时间与距离之间的数学关系</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                                <div class="bg-primary-50 dark:bg-primary-900/40 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-primary-700 dark:text-primary-300 mb-2">亚里士多德的预言</h4>
+                                    <p>滚动球的速度是均匀不变的：铜球滚动两倍的时间就走出两倍的路程。</p>
+                                </div>
+                                <div class="bg-green-50 dark:bg-green-900/40 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-green-700 dark:text-green-300 mb-2">伽利略的发现</h4>
+                                    <p>铜球滚动的路程和时间的平方成比例：两倍的时间里，铜球滚动4倍的距离。</p>
+                                </div>
+                            </div>
+                            
+                            <p>
+                                通过这一实验，伽利略发现了加速度的概念，证明了物体在重力作用下会产生匀加速运动。这一发现为后来牛顿力学的发展奠定了基础，彻底改变了人们对运动规律的认识。
+                            </p>
+                            
+                            <div class="flex justify-center mt-6">
+                                <div class="inline-flex items-center px-4 py-2 bg-primary-50 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 rounded-lg">
+                                    <i class="fas fa-chart-line mr-2"></i>
+                                    <span>s ∝ t²：距离与时间平方成正比</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 总结部分 -->
+        <section class="max-w-3xl mx-auto text-center py-10">
+            <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">科学探索的启示</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                这些伟大实验不仅揭示了自然规律，更展示了科学精神的核心：观察、质疑、实验和验证。
+                从埃拉托色尼的地球测量到伽利略的运动学研究，科学家们用创新思维和严谨方法，
+                打破了传统认知的束缚，推动了人类文明的进步。
+            </p>
+            <div class="inline-flex items-center px-5 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-book-open mr-2"></i>
+                <span>探索更多物理学实验</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-100 dark:bg-gray-800 py-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold text-primary-700 dark:text-primary-300">物理学史上的伟大实验</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">探索改变世界的科学里程碑</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center text-gray-600 dark:text-gray-400">
+                <p>© 2023 物理学史实验集. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 p-3 rounded-full bg-primary-600 text-white shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary-700 focus:outline-none">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 主题切换功能
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // 检查系统偏好
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.classList.add('dark');
+        }
+        
+        // 检查本地存储
+        if (localStorage.getItem('theme') === 'dark') {
+            html.classList.add('dark');
+        } else if (localStorage.getItem('theme') === 'light') {
+            html.classList.remove('dark');
+        }
+        
+        // 切换主题
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // 回到顶部按钮
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 导航链接激活状态
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary-600', 'dark:text-primary-400', 'font-medium');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('text-primary-600', 'dark:text-primary-400', 'font-medium');
+                }
+            });
+        });
+        
+        // 添加淡入动画
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('section');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('animate-slide-up');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
